@@ -1,0 +1,22 @@
+/* Your app custom styles here */
+
+@tailwind components;
+@tailwind utilities;
+
+.card-header:after {
+    background-color: transparent !important;
+}
+
+.swiperImg {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+.favoriteButton {
+    padding: 0 !important;
+}
+
+.card-header-image {
+    border-radius: 0 !important;;
+}
