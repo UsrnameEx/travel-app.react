@@ -1,12 +1,10 @@
 import React from 'react';
 
-import {
-    App,
-    View, Panel, Page, BlockTitle, List, ListItem, f7ready, f7,
-} from 'framework7-react';
+import {App, View,} from 'framework7-react';
 
-import routes from '../js/routes';
+import routes from '@/js/routes';
 //import store from '../js/store';
+
 import PanelRight from '@/components/PanelRight';
 import PanelLeft from "@/components/PanelLeft";
 

@@ -12,7 +12,7 @@ const PanelLeft = () => {
 
     return (
         <div>
-            <Panel resizable left dark swipe={true}>
+            <Panel resizable left dark swipe={true} swipeOnlyClose={true}>
                 <View>
                     <Page name='CitiesPage'>
                         <Searchbar
