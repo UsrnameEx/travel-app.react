@@ -13,6 +13,8 @@ import {
     f7, CardContent, CardFooter, Link, Icon, Panel, View,
 } from "framework7-react";
 import PostService from "@/API/PostService";
+import FavoriteBookmark from "@/components/post/FavoriteBookmark";
+import Like from "@/components/post/Like";
 
 const PostPage = () => {
     const [post, setPost] = useState({});
@@ -33,11 +35,18 @@ const PostPage = () => {
         imageBrowser.open();
     }
 
+    const renderHtmlMarkup = () => {
+        return {
+            __html: post.description
+        };
+    }
+
     return (
         <Page name='PostPage'>
             <Navbar backLink='Back' title={post.title}>
-                <div slot='left' className='display-flex align-items-center'>
-                    <Button className='favoriteButton' color='yellow'><Icon f7='bookmark'/></Button>
+                <div slot='right' className='display-flex align-items-center margin-right'>
+                    <Like stopPropagation isLiked={post.isLiked}/>
+                    <FavoriteBookmark isFavorite={post.isFavorite}/>
                 </div>
             </Navbar>
             <Block>
@@ -56,14 +65,9 @@ const PostPage = () => {
             </Block>
             <Card>
                 <CardContent>
-                    {post.description}
+                    <p dangerouslySetInnerHTML={renderHtmlMarkup()}></p>
                 </CardContent>
-                <CardFooter className="no-border">
-                    <Link>Like (42)</Link>
-                    <Link>Поделиться</Link>
-                </CardFooter>
             </Card>
-
         </Page>
     );
 };

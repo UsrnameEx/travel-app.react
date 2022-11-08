@@ -13,10 +13,10 @@
     object-fit: cover;
 }
 
-.favoriteButton {
-    padding: 0 !important;
-}
-
 .card-header-image {
     border-radius: 0 !important;;
+}
+
+.width-50 {
+    width: 50%;
 }

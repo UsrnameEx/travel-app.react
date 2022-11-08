@@ -1,15 +1,14 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
 import {
-    f7,
-    f7ready,
     App,
-    View, Page, Block, Panel, ListItem, BlockTitle, List,
+    View, Panel, Page, BlockTitle, List, ListItem, f7ready, f7,
 } from 'framework7-react';
 
 import routes from '../js/routes';
-import store from '../js/store';
-import PanelLeft from '@/components/PanelLeft';
+//import store from '../js/store';
+import PanelRight from '@/components/PanelRight';
+import PanelLeft from "@/components/PanelLeft";
 
 const MyApp = () => {
     const f7params = {
@@ -20,26 +19,18 @@ const MyApp = () => {
             browserHistorySeparator: ''
         },
         autoDarkMode: true,
-        store: store,
+        //store: store,
         routes: routes,
-        // Register service worker (only on production build)
         serviceWorker: process.env.NODE_ENV === 'production' ? {
             path: '/service-worker.js',
         } : {},
     };
 
-    f7ready(() => {
-
-    });
-
     return (
         <App {...f7params} >
-            <Panel resizable right dark swipe={true}>
-                <View>
-                    <PanelLeft/>
-                </View>
-            </Panel>
-            <View main  url="/" />
+            <PanelLeft/>
+            <PanelRight/>
+            <View main url="/"/>
         </App>
     );
 }

@@ -12,7 +12,7 @@ const routes = [
         options: {
             transition: 'f7-parallax',
         },
-    }
+    },
 ];
 
 export default routes;

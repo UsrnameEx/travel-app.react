@@ -1,16 +1,33 @@
-import React from 'react';
-import {BlockTitle, List, ListItem, Page} from 'framework7-react';
+import React, {useState} from 'react';
+import {BlockTitle, List, ListItem, Page, Panel, Searchbar, View} from "framework7-react";
+import CityList from "@/components/city/CityList";
 
 const PanelLeft = () => {
+    const [cities, setCities] = useState([
+        {id: 1, name: 'Ялта', code: 'yalta', isPinned: true},
+        {id: 2, name: 'Севастополь', code: 'sevastopol',},
+        {id: 3, name: 'Евпатория', code: 'evpatoria',},
+        {id: 4, name: 'Симферополь', code: 'simferopol',}
+    ]);
+
     return (
-        <Page>
-            <BlockTitle>Навигация</BlockTitle>
-            <List>
-                <ListItem link="/posts/" title="Статьи" panelClose />
-                <ListItem link="/postsByCities" title="Статьи по городам" panelClose />
-                <ListItem link="/favorites/" title="Избранное" panelClose />
-            </List>
-        </Page>
+        <div>
+            <Panel resizable left dark swipe={true}>
+                <View>
+                    <Page name='CitiesPage'>
+                        <Searchbar
+                            searchContainer=".search-list"
+                            searchIn=".item-title"
+                            disableButton={false}
+                        ></Searchbar>
+                        <List className="searchbar-not-found">
+                            <ListItem title="Nothing found"></ListItem>
+                        </List>
+                        <CityList cities={cities}/>
+                    </Page>
+                </View>
+            </Panel>
+        </div>
     );
 };
 

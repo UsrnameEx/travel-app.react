@@ -1,8 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-    Page,
-    Navbar, Icon, Button,
-} from 'framework7-react';
+import {Page, Navbar, Icon, Button,} from 'framework7-react';
 
 import PostService from "@/API/PostService";
 import PostList from "@/components/post/PostList";
