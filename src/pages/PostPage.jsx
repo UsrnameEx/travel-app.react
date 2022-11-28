@@ -1,27 +1,31 @@
 import React, {useEffect, useState} from 'react';
 import {
     Block,
-    BlockTitle,
-    Button,
     Card,
-    List,
-    ListInput,
     Navbar,
     Page,
     Swiper,
     SwiperSlide,
-    f7, CardContent, CardFooter, Link, Icon, Panel, View,
+    f7, CardContent,
 } from "framework7-react";
-import PostService from "@/API/PostService";
+import PostService from "@/api/PostService";
 import FavoriteBookmark from "@/components/post/FavoriteBookmark";
 import Like from "@/components/post/Like";
 
-const PostPage = () => {
+const PostPage = ({postId}) => {
     const [post, setPost] = useState({});
 
     useEffect(() => {
-        setPost(PostService.getPost(0));
+        getPost();
     }, [])
+
+    const getPost = async () => {
+        const response = await PostService.getPost(postId);
+
+        if (response) {
+            setPost(response.item);
+        }
+    }
 
     const openImage = (id) => {
         const imageBrowser = f7.photoBrowser.create({
@@ -32,6 +36,7 @@ const PostPage = () => {
             toolbar: false,
             popupCloseLinkText: 'X',
         });
+        
         imageBrowser.open();
     }
 
@@ -54,10 +59,14 @@ const PostPage = () => {
                     {post.images?.map((image, index) =>
                         <SwiperSlide key={index}>
                             <div className='flex justify-center'>
-                                <img onClick={() => {
-                                    openImage(index)
-                                }} className='swiperImg' src={image}
-                                     alt='Мыс Капчик'/>
+                                <img
+                                    onClick={() => {
+                                        openImage(index)
+                                    }}
+                                    className='swiperImg'
+                                    src={image}
+                                    alt={post.title}
+                                />
                             </div>
                         </SwiperSlide>
                     )}

@@ -1,5 +1,6 @@
-import HomePage from '../pages/home.jsx';
-import PostPage from "../pages/PostPage";
+import HomePage from '@/pages/HomePage';
+import PostPage from "@/pages/PostPage";
+import ToursPage from "@/pages/ToursPage";
 
 const routes = [
     {
@@ -7,8 +8,15 @@ const routes = [
         component: HomePage,
     },
     {
-        path: '/posts/:id',
+        path: '/posts/:postId',
         component: PostPage,
+        options: {
+            transition: 'f7-parallax',
+        },
+    },
+    {
+        path: '/tours',
+        component: ToursPage,
         options: {
             transition: 'f7-parallax',
         },

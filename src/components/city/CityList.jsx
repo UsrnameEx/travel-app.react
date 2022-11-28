@@ -1,6 +1,6 @@
 import React from 'react';
 import {Icon, List, ListItem} from "framework7-react";
-import {UserService} from '@/API/UserService';
+import {UserService} from '@/api/UserService';
 
 const CityList = ({cities}) => {
     const selectCity = async (code) => {

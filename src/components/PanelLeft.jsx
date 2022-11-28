@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {BlockTitle, List, ListItem, Page, Panel, Searchbar, View} from "framework7-react";
-import CityList from "@/components/city/CityList";
+import {List, ListItem, Page, Panel, Searchbar, View} from 'framework7-react';
+import CityList from '@/components/city/CityList';
 
 const PanelLeft = () => {
     const [cities, setCities] = useState([
@@ -20,8 +20,8 @@ const PanelLeft = () => {
                             searchIn=".item-title"
                             disableButton={false}
                         ></Searchbar>
-                        <List className="searchbar-not-found">
-                            <ListItem title="Nothing found"></ListItem>
+                        <List className='searchbar-not-found'>
+                            <ListItem title='Ничего не найдено'></ListItem>
                         </List>
                         <CityList cities={cities}/>
                     </Page>

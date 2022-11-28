@@ -4,4 +4,10 @@ export class MainService {
             status: 'ok'
         };
     }
+
+    static async getPage(endpoint, params, callback) {
+        return {
+            status: 'ok'
+        };
+    }
 }
